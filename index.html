@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Victoria Marchio — Marketing & Communications</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF8F4;
+    --black: #0E0E0E;
+    --charcoal: #1C1C1C;
+    --warm-gray: #6B6560;
+    --accent: #C8A96E;
+    --accent-light: #E8D5B0;
+    --violet: #9B8EC4;
+    --violet-light: rgba(155,142,196,0.15);
+    --teal: #4A9B8E;
+    --teal-light: rgba(74,155,142,0.15);
+    --border: rgba(200,169,110,0.25);
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--black);
+    font-family: var(--font-body);
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── LANG SWITCHER ── */
+  .lang-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 48px;
+    background: rgba(250,248,244,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .lang-logo {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .lang-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .lang-nav a {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .lang-nav a:hover { color: var(--black); }
+
+  .lang-btns {
+    display: flex;
+    gap: 8px;
+  }
+
+  .lang-btn {
+    font-family: var(--font-body);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    background: transparent;
+    cursor: pointer;
+    color: var(--warm-gray);
+    transition: all 0.2s;
+  }
+
+  .lang-btn.active, .lang-btn:hover {
+    background: var(--black);
+    color: var(--cream);
+    border-color: var(--black);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 48px 80px;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 55%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 0%, rgba(200,169,110,0.06) 100%);
+    z-index: 0;
+  }
+
+  .hero-label {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.3s forwards;
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(64px, 10vw, 140px);
+    font-weight: 300;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.5s forwards;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.8s forwards;
+  }
+
+  .hero-bio {
+    max-width: 420px;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--warm-gray);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+  }
+
+  .hero-stat {
+    text-align: right;
+  }
+
+  .hero-stat-num {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--black);
+  }
+
+  .hero-stat-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-top: 4px;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    right: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    opacity: 0;
+    animation: fadeUp 0.8s ease 1.2s forwards;
+  }
+
+  .hero-scroll::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 120px 48px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--black);
+    margin-bottom: 64px;
+  }
+
+  .section-title em { font-style: italic; }
+
+  /* ── ABOUT ── */
+  .about {
+    background: var(--black);
+    color: var(--cream);
+  }
+
+  .about .section-title { color: var(--cream); }
+  .about .section-label { color: var(--accent); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-text {
+    font-size: 16px;
+    line-height: 1.85;
+    color: rgba(250,248,244,0.7);
+  }
+
+  .about-text p + p { margin-top: 20px; }
+
+  .about-right {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .about-detail {
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(200,169,110,0.2);
+  }
+
+  .about-detail-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .about-detail-value {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--cream);
+    font-weight: 400;
+  }
+
+  /* ── PROJECTS ── */
+  .projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .project-item {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    align-items: center;
+    gap: 48px;
+    padding: 40px 48px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: background 0.3s;
+    position: relative;
+  }
+
+  .project-item:first-child { border-top: 1px solid rgba(0,0,0,0.08); }
+
+  .project-item::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    height: 1px;
+    width: 0;
+    background: var(--accent);
+    transition: width 0.4s ease;
+  }
+
+  .project-item:hover::after { width: 100%; }
+  .project-item:hover { background: rgba(200,169,110,0.04); }
+
+  .project-num {
+    font-family: var(--font-display);
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+
+  .project-info {}
+
+  .project-brand {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-bottom: 6px;
+  }
+
+  .project-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--black);
+    line-height: 1.2;
+  }
+
+  .project-tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+
+  .project-tag {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    color: var(--warm-gray);
+  }
+
+  .project-arrow {
+    font-size: 22px;
+    color: var(--accent);
+    transition: transform 0.3s;
+  }
+
+  .project-item:hover .project-arrow { transform: translateX(6px); }
+
+  /* Project Expanded */
+  .project-expanded {
+    display: none;
+    padding: 0 48px 48px 176px;
+    background: rgba(200,169,110,0.03);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .project-expanded.open { display: block; }
+
+  .project-desc {
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--warm-gray);
+    max-width: 720px;
+    padding-top: 24px;
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+
+  .project-link:hover { color: var(--accent); }
+
+  /* ── SKILLS ── */
+  .skills {
+    background: var(--charcoal);
+    color: var(--cream);
+  }
+
+  .skills .section-title { color: var(--cream); }
+  .skills .section-label { color: var(--accent); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .skill-category {
+    padding: 48px;
+    border: 1px solid rgba(200,169,110,0.12);
+    transition: border-color 0.3s;
+  }
+
+  .skill-category:hover { border-color: rgba(200,169,110,0.4); }
+
+  .skill-cat-label {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+
+  .skill-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .skill-list li {
+    font-size: 15px;
+    color: rgba(250,248,244,0.75);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .skill-list li::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    padding: 120px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .contact-left {}
+
+  .contact-tagline {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 5vw, 72px);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 40px;
+  }
+
+  .contact-tagline em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--black);
+    transition: color 0.2s;
+  }
+
+  .contact-link:hover { color: var(--accent); }
+
+  .contact-link-type {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    width: 100px;
+  }
+
+  .contact-link-value {
+    font-family: var(--font-display);
+    font-size: 20px;
+    flex: 1;
+  }
+
+  .contact-link-arrow { font-size: 18px; }
+
+  .contact-right {
+    background: var(--black);
+    padding: 64px;
+    color: var(--cream);
+  }
+
+  .contact-right-title {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 32px;
+    line-height: 1.2;
+  }
+
+  .contact-right-title em { font-style: italic; color: var(--accent); }
+
+  .contact-right p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(250,248,244,0.65);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: var(--warm-gray);
+    letter-spacing: 0.06em;
+  }
+
+  .footer-name {
+    font-family: var(--font-display);
+    font-size: 16px;
+    color: var(--black);
+    letter-spacing: 0.06em;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.9s forwards;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .hero-cta-primary {
+    background: var(--black);
+    color: var(--cream);
+  }
+
+  .hero-cta-primary:hover {
+    background: var(--accent);
+    color: var(--black);
+  }
+
+  .hero-cta-secondary {
+    background: transparent;
+    color: var(--black);
+    border: 1px solid rgba(0,0,0,0.2);
+  }
+
+  .hero-cta-secondary:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+  }
+
+  /* color accents on skill categories */
+  .skill-category:nth-child(1) { border-top: 2px solid var(--accent); }
+  .skill-category:nth-child(2) { border-top: 2px solid var(--violet); }
+  .skill-category:nth-child(3) { border-top: 2px solid var(--teal); }
+  .skill-category:nth-child(4) { border-top: 2px solid var(--accent); }
+  .skill-category:nth-child(5) { border-top: 2px solid var(--violet); }
+  .skill-category:nth-child(6) { border-top: 2px solid var(--teal); }
+
+  .skill-category:nth-child(2) .skill-cat-label { color: var(--violet); }
+  .skill-category:nth-child(3) .skill-cat-label { color: var(--teal); }
+  .skill-category:nth-child(5) .skill-cat-label { color: var(--violet); }
+  .skill-category:nth-child(6) .skill-cat-label { color: var(--teal); }
+
+  /* project tag color variations */
+  .project-tag:nth-child(2) { border-color: rgba(155,142,196,0.35); color: var(--violet); }
+  .project-tag:nth-child(3) { border-color: rgba(74,155,142,0.35); color: var(--teal); }
+
+  /* about detail accent dots */
+  .about-detail:nth-child(2) .about-detail-label { color: var(--violet); }
+  .about-detail:nth-child(3) .about-detail-label { color: var(--teal); }
+  .about-detail:nth-child(4) .about-detail-label { color: var(--violet); }
+
+  /* hero stat accents */
+  .hero-stat:nth-child(2) .hero-stat-num { color: var(--violet); }
+  .hero-stat:nth-child(3) .hero-stat-num { color: var(--teal); }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .lang-bar { padding: 16px 24px; }
+    .lang-nav { display: none; }
+    section, .hero { padding-left: 24px; padding-right: 24px; }
+    .hero { padding-bottom: 60px; }
+    .hero-bottom { flex-direction: column; align-items: flex-start; gap: 32px; }
+    .hero-stats { flex-direction: row; gap: 32px; }
+    .about-grid, .contact { grid-template-columns: 1fr; gap: 48px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .project-item { grid-template-columns: 48px 1fr auto; gap: 16px; padding: 28px 24px; }
+    .project-expanded { padding-left: 88px; }
+    .contact-right { padding: 40px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+    .hero-scroll { display: none; }
+  }
+  /* ── MOSAIC GRID ── */
+  .mosaic {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    gap: 3px;
+  }
+
+  .mosaic-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--charcoal);
+  }
+
+  /* layout assignments */
+  .mosaic-card:nth-child(1) { grid-column: span 5; grid-row: span 2; }
+  .mosaic-card:nth-child(2) { grid-column: span 4; }
+  .mosaic-card:nth-child(3) { grid-column: span 3; grid-row: span 2; }
+  .mosaic-card:nth-child(4) { grid-column: span 4; }
+  .mosaic-card:nth-child(5) { grid-column: span 7; }
+  .mosaic-card:nth-child(6) { grid-column: span 2; grid-row: span 2; }
+  .mosaic-card:nth-child(7) { grid-column: span 5; }
+  .mosaic-card:nth-child(8) { grid-column: span 5; grid-row: span 1; }
+
+  .mosaic-img {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s ease;
+  }
+
+  .mosaic-img-fallback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .mosaic-card:hover .mosaic-img { transform: scale(1.04); }
+
+  .mosaic-overlay {
+    position: relative;
+    z-index: 2;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px;
+    background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+    transition: background 0.3s;
+  }
+
+  /* taller cards */
+  .mosaic-card:nth-child(1) .mosaic-overlay,
+  .mosaic-card:nth-child(3) .mosaic-overlay { height: 340px; }
+
+  .mosaic-card:hover .mosaic-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.15) 100%);
+  }
+
+  .mosaic-num {
+    font-family: var(--font-display);
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    align-self: flex-start;
+  }
+
+  .mosaic-content { }
+
+  .mosaic-brand {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 6px;
+  }
+
+  .mosaic-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .mosaic-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .mosaic-tag {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border: 1px solid rgba(200,169,110,0.4);
+    color: var(--accent);
+  }
+
+  .mosaic-arrow {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 20px;
+    color: var(--accent);
+    opacity: 0;
+    transform: translate(-4px, 4px);
+    transition: all 0.3s ease;
+  }
+
+  .mosaic-card:hover .mosaic-arrow {
+    opacity: 1;
+    transform: translate(0,0);
+  }
+
+  /* ── MODAL ── */
+  .modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 200;
+    backdrop-filter: blur(4px);
+  }
+
+  .modal-backdrop.open { display: block; }
+
+  .modal {
+    display: none;
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 201;
+    background: var(--cream);
+    width: 90vw;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal.open { display: block; }
+
+  .modal-close {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: var(--black);
+    color: var(--cream);
+    border: none;
+    width: 36px; height: 36px;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.2s;
+  }
+
+  .modal-close:hover { background: var(--accent); color: var(--black); }
+
+  .modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .modal-images {
+    background: var(--charcoal);
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .modal-img-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    font-family: var(--font-display);
+    font-size: 16px;
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    letter-spacing: 0.1em;
+  }
+
+  .modal-img-item img {
+    max-width: 100%;
+    max-height: 120px;
+    object-fit: contain;
+  }
+
+  .modal-info {
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .modal-num {
+    font-family: var(--font-display);
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+
+  .modal-brand {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+  }
+
+  .modal-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--black);
+    line-height: 1.2;
+  }
+
+  .modal-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .modal-tag {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    color: var(--warm-gray);
+  }
+
+  .modal-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--warm-gray);
+  }
+
+  .modal-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+    width: fit-content;
+    margin-top: auto;
+    transition: color 0.2s;
+  }
+
+  .modal-link:hover { color: var(--accent); }
+  .modal-link:empty { display: none; }
+
+  @media (max-width: 768px) {
+    .mosaic { grid-template-columns: 1fr 1fr; }
+    .mosaic-card { grid-column: span 1 !important; grid-row: span 1 !important; }
+    .mosaic-overlay { height: 200px !important; }
+    .modal-body { grid-template-columns: 1fr; }
+    .modal-images { min-height: 200px; }
+  }
+</style>
+<body>
+
+<!-- NAV -->
+<nav class="lang-bar">
+  <a href="#" class="lang-logo">Victoria Marchio</a>
+  <div class="lang-nav">
+    <a href="#about" data-i18n="nav.about">About</a>
+    <a href="#projects" data-i18n="nav.projects">Projects</a>
+    <a href="#skills" data-i18n="nav.skills">Skills</a>
+    <a href="#contact" data-i18n="nav.contact">Contact</a>
+  </div>
+  <div class="lang-btns">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('es')">ES</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label" data-i18n="hero.label">Marketing & Communications Specialist</div>
+  <h1 class="hero-name">Victoria<br><em>Marchio</em></h1>
+  <div class="hero-bottom">
+    <p class="hero-bio" data-i18n="hero.bio">
+      Advertising graduate from Universidad de Palermo, Argentina. 
+      I build brands from the ground up — combining strategy, creative direction, 
+      performance marketing, and data analysis to drive measurable results.
+    </p>
+  </div>
+  <div class="hero-cta-row">
+    <a href="#about" class="hero-cta hero-cta-primary" data-i18n="hero.cta.me">About Me ↓</a>
+    <a href="#projects" class="hero-cta hero-cta-secondary" data-i18n="hero.cta.projects">View Projects ↓</a>
+  </div>
+  <div class="hero-scroll" data-i18n="hero.scroll">Scroll to explore</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-label" data-i18n="about.label">About</div>
+  <h2 class="section-title" data-i18n="about.title">Strategy meets<br><em>execution</em></h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p data-i18n="about.p1">I'm a Marketing & Communications specialist with a degree in Advertising from Universidad de Palermo, Argentina. My experience spans brand launches, digital campaigns, e-commerce management, content strategy, and performance marketing — across consumer goods, wine & spirits, and real estate.</p>
+      <p data-i18n="about.p2">What sets me apart is my ability to operate across the full marketing funnel: from defining brand identity and communication pillars, to running Meta Ads campaigns that deliver measurable ROAS, to managing every digital touchpoint that connects a brand to its audience.</p>
+      <p data-i18n="about.p3">I'm equally comfortable leading a zero-to-one brand launch as I am optimizing a complex e-commerce operation or orchestrating a multi-market influencer campaign. I believe great marketing lives at the intersection of creative vision and hard data.</p>
+    </div>
+    <div class="about-right">
+      <div class="about-detail">
+        <div class="about-detail-label" data-i18n="about.edu.label">Education</div>
+        <div class="about-detail-value" data-i18n="about.edu.value">Bachelor's Degree in Advertising<br>Universidad de Palermo, ARG</div>
+      </div>
+      <div class="about-detail">
+        <div class="about-detail-label" data-i18n="about.markets.label">Markets</div>
+        <div class="about-detail-value" data-i18n="about.markets.value">United States · Argentina · Mexico<br>Multi-market experience</div>
+      </div>
+      <div class="about-detail">
+        <div class="about-detail-label" data-i18n="about.industries.label">Industries</div>
+        <div class="about-detail-value" data-i18n="about.industries.value">Wine & Spirits · Real Estate<br>Consumer Goods · FMCG</div>
+      </div>
+      <div class="about-detail">
+        <div class="about-detail-label" data-i18n="about.langs.label">Languages</div>
+        <div class="about-detail-value" data-i18n="about.langs.value">Spanish (Native)<br>English (Professional)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section style="padding: 120px 48px;" id="projects">
+  <div class="section-label" data-i18n="projects.label">Selected Work</div>
+  <h2 class="section-title" data-i18n="projects.title">Projects &<br><em>Campaigns</em></h2>
+
+  <!-- MOSAIC GRID -->
+  <div class="mosaic">
+
+    <!-- CARD 1 — John C Spirits (large) -->
+    <div class="mosaic-card mosaic-large" onclick="openModal('m1')">
+      <div class="mosaic-img" style="background:#0E0E0E;">
+        <img src="https://www.johncspirits.com/wp-content/uploads/2024/01/johnc-hero.jpg"
+             onerror="this.style.display='none'"
+             alt="John C Spirits" style="width:100%;height:100%;object-fit:cover;opacity:0.85;">
+        <div class="mosaic-img-fallback">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:48px;color:#C8A96E;letter-spacing:0.1em;">John C</span>
+          <span style="font-size:13px;color:rgba(255,255,255,0.5);letter-spacing:0.2em;text-transform:uppercase;margin-top:8px;">Spirits</span>
+        </div>
+      </div>
+      <div class="mosaic-overlay">
+        <div class="mosaic-num">01</div>
+        <div class="mosaic-content">
+          <div class="mosaic-brand">Piattelli Distillery</div>
+          <div class="mosaic-title" data-i18n="p1.title">John C Spirits — Brand Launch</div>
+          <div class="mosaic-tags">
+            <span class="mosaic-tag" data-i18n="tag.brand">Brand Identity</span>
+            <span class="mosaic-tag">Influencer</span>
+            <span class="mosaic-tag">Meta Ads</span>
+          </div>
+        </div>
+        <div class="mosaic-arrow">↗</div>
+      </div>
+    </div>
+
+    <!-- CARD 2 — Piattelli Vineyards (medium) -->
+    <div class="mosaic-card mosaic-medium" onclick="openModal('m2')">
+      <div class="mosaic-img" style="background:#1a2535;">
+        <img src="https://www.piattellivineyards.com/wp-content/uploads/piattelli-hero.jpg"
+             onerror="this.style.display='none'"
+             alt="Piattelli Vineyards" style="width:100%;height:100%;object-fit:cover;opacity:0.7;">
+        <div class="mosaic-img-fallback">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:36px;color:#E8D5B0;letter-spacing:0.15em;">PIATTELLI</span>
+          <span style="font-size:11px;color:rgba(232,213,176,0.6);letter-spacing:0.3em;text-transform:uppercase;margin-top:6px;">Vineyards</span>
+        </div>
+      </div>
+      <div class="mosaic-overlay">
+        <div class="mosaic-num">02</div>
+        <div class="mosaic-content">
+          <div class="mosaic-brand">Piattelli Vineyards</div>
+          <div class="mosaic-title" data-i18n="p2.title">Marketing & Digital Management</div>
+          <div class="mosaic-tags">
+            <span class="mosaic-tag">Meta Ads</span>
+            <span class="mosaic-tag">Email</span>
+            <span class="mosaic-tag" data-i18n="tag.trade">Trade</span>
+          </div>
+        </div>
+        <div class="mosaic-arrow">↗</div>
+      </div>
+    </div>
+
+    <!-- CARD 3 — Piattelli FIFA (tall accent) -->
+    <div class="mosaic-card mosaic-tall" onclick="openModal('m2')">
+      <div class="mosaic-img" style="background:linear-gradient(135deg,#1a3a6b,#0e1f3d);">
+        <div class="mosaic-img-fallback">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#fff;letter-spacing:0.12em;text-align:center;">This Is What<br><em style='color:#C8A96E;font-size:28px;'>Passion</em><br>Tastes Like</span>
+        </div>
+      </div>
+      <div class="mosaic-overlay">
+        <div class="mosaic-num" style="color:#9B8EC4;">★</div>
+        <div class="mosaic-content">
+          <div class="mosaic-brand">Campaign</div>
+          <div class="mosaic-title">FIFA World Cup Activation</div>
+          <div class="mosaic-tags">
+            <span class="mosaic-tag" style="border-color:rgba(155,142,196,0.5);color:#9B8EC4;">Multi-market</span>
+          </div>
+        </div>
+        <div class="mosaic-arrow" style="color:#9B8EC4;">↗</div>
+      </div>
+    </div>
+
+    <!-- CARD 4 — Piattelli Direct (medium) -->
+    <div class="mosaic-card mosaic-medium" onclick="openModal('m3')">
+      <div class="mosaic-img" style="background:#2d1f0e;">
+        <img src="https://piattellidirect.com/wp-content/uploads/piattelli-direct-hero.jpg"
+             onerror="this.style.display='none'"
+             alt="Piattelli Direct" style="width:100%;height:100%;object-fit:cover;opacity:0.75;">
+        <div class="mosaic-img-fallback">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#C8A96E;letter-spacing:0.1em;">Piattelli</span>
+          <span style="font-size:11px;color:rgba(200,169,110,0.7);letter-spacing:0.25em;text-transform:uppercase;margin-top:6px;">Direct · USA</span>
+        </div>
+      </div>
+      <div class="mosaic-overlay">
+        <div class="mosaic-num">03</div>
+        <div class="mosaic-content">
+          <div class="mosaic-brand">Piattelli Direct — USA</div>
+          <div class="mosaic-title" data-i18n="p3.title">DTC E-commerce</div>
+          <div class="mosaic-tags">
+            <span class="mosaic-tag">E-commerce</span>
+            <span class="mosaic-tag">CRO</span>
+          </div>
+        </div>
+        <div class="mosaic-arrow">↗</div>
+      </div>
+    </div>
+
+    <!-- CARD 5 — Blackstone (wide) -->
+    <div class="mosaic-card mosaic-wide" onclick="openModal('m4')">
+      <div class="mosaic-img" style="background:#1a0a00;">
+        <img src="https://blackstoneproducts.com/cdn/shop/files/homepage-hero.jpg"
+             onerror="this.style.display='none'"
+             alt="Blackstone" style="width:100%;height:100%;object-fit:cover;opacity:0.65;">
+        <div class="mosaic-img-fallback" style="flex-direction:row;gap:32px;">
+          <div style="text-align:center;">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:52px;color:#C8A96E;line-height:1;">595%</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.5);letter-spacing:0.2em;text-transform:uppercase;">ROAS</div>
+          </div>
+          <div style="width:1px;background:rgba(200,169,110,0.3);"></div>
+          <div style="text-align:center;">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:52px;color:#4A9B8E;line-height:1;">1116%</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.5);letter-spacing:0.2em;text-transform:uppercase;">Best Ad</div>
+          </div>
+        </div>
+      </div>
+      <div class="mosaic-overlay">
+        <div class="mosaic-num" style="color:#4A9B8E;">04</div>
+        <div class="mosaic-content">
+          <div class="mosaic-brand">Blackstone Products — USA</div>
+          <div class="mosaic-title" data-i18n="p4.title">Performance Ads — 595% ROAS</div>
+          <div class="mosaic-tags">
+            <span class="mosaic-tag" style="border-color:rgba(74,155,142,0.5);color:#4A9B8E;">Meta Ads</span>
+            <span class="mosaic-tag" style="border-color:rgba(74,155,142,0.5);color:#4A9B8E;">Google Ads</span>
+          </div>
+        </div>
+        <div class="mosaic-arrow" style="color:#4A9B8E;">↗</div>
+      </div>
+    </div>
+
+    <!-- CARD 6 — Women's Month (tall) -->
+    <div class="mosaic-card mosaic-tall" onclick="openModal('m2')">
+      <div class="mosaic-img" style="background:linear-gradient(180deg,#3d1f2d,#1a0d14);">
+        <div class="mosaic-img-fallback">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;text-align:center;line-height:1.4;">Led by<br><em style='color:#9B8EC4;font-size:26px;'>Her</em>vision</span>
+          <span style="font-size:9px;color:rgba(255,255,255,0.4);letter-spacing:0.18em;text-transform:uppercase;margin-top:10px;">Women's History Month</span>
+        </div>
+      </div>
+      <div class="mosaic-overlay">
+        <div class="mosaic-num" style="color:#9B8EC4;">★</div>
+        <div class="mosaic-content">
+          <div class="mosaic-brand">Campaign</div>
+          <div class="mosaic-title">Women's History Month</div>
+          <div class="mosaic-tags">
+            <span class="mosaic-tag" style="border-color:rgba(155,142,196,0.5);color:#9B8EC4;">Brand</span>
+          </div>
+        </div>
+        <div class="mosaic-arrow" style="color:#9B8EC4;">↗</div>
+      </div>
+    </div>
+
+    <!-- CARD 7 — Breakout (medium) -->
+    <div class="mosaic-card mosaic-medium" onclick="openModal('m5')">
+      <div class="mosaic-img" style="background:linear-gradient(135deg,#0d2b1a,#1a4d2e);">
+        <div class="mosaic-img-fallback">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:38px;color:#4A9B8E;letter-spacing:0.08em;">Breakout</span>
+          <span style="font-size:10px;color:rgba(74,155,142,0.7);letter-spacing:0.25em;text-transform:uppercase;margin-top:6px;">RTD · Organic Social</span>
+        </div>
+      </div>
+      <div class="mosaic-overlay">
+        <div class="mosaic-num" style="color:#4A9B8E;">05</div>
+        <div class="mosaic-content">
+          <div class="mosaic-brand">Breakout RTD</div>
+          <div class="mosaic-title" data-i18n="p5.title">Organic Social — RTD Brand</div>
+          <div class="mosaic-tags">
+            <span class="mosaic-tag" style="border-color:rgba(74,155,142,0.5);color:#4A9B8E;">Content</span>
+            <span class="mosaic-tag" style="border-color:rgba(74,155,142,0.5);color:#4A9B8E;">Gen Z</span>
+          </div>
+        </div>
+        <div class="mosaic-arrow" style="color:#4A9B8E;">↗</div>
+      </div>
+    </div>
+
+    <!-- CARD 8 — Real Estate (large) -->
+    <div class="mosaic-card mosaic-large" onclick="openModal('m6')">
+      <div class="mosaic-img" style="background:#0e1922;">
+        <div class="mosaic-img-fallback">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:40px;color:#fff;letter-spacing:0.06em;">Real Estate</span>
+          <span style="font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:0.2em;text-transform:uppercase;margin-top:8px;">@escallon.realtor · @shelter.wynwood</span>
+          <div style="display:flex;gap:32px;margin-top:20px;">
+            <div style="text-align:center;"><div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:#C8A96E;">41K+</div><div style="font-size:9px;color:rgba(255,255,255,0.4);letter-spacing:0.15em;text-transform:uppercase;">Organic Reach</div></div>
+            <div style="text-align:center;"><div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:#9B8EC4;">10.5K</div><div style="font-size:9px;color:rgba(255,255,255,0.4);letter-spacing:0.15em;text-transform:uppercase;">Best Reel</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="mosaic-overlay">
+        <div class="mosaic-num">06</div>
+        <div class="mosaic-content">
+          <div class="mosaic-brand">Real Estate Accounts</div>
+          <div class="mosaic-title" data-i18n="p6.title">Social Media & Reels — 40K+ Reach</div>
+          <div class="mosaic-tags">
+            <span class="mosaic-tag">Reels</span>
+            <span class="mosaic-tag" data-i18n="tag.organic">Organic</span>
+          </div>
+        </div>
+        <div class="mosaic-arrow">↗</div>
+      </div>
+    </div>
+
+  </div><!-- /mosaic -->
+</section>
+
+<!-- ── MODALS ── -->
+<div class="modal-backdrop" id="modalBackdrop" onclick="closeModal()"></div>
+
+<div class="modal" id="modal">
+  <button class="modal-close" onclick="closeModal()">✕</button>
+  <div class="modal-body">
+    <div class="modal-images" id="modalImages"></div>
+    <div class="modal-info">
+      <div class="modal-num" id="modalNum"></div>
+      <div class="modal-brand" id="modalBrand"></div>
+      <h3 class="modal-title" id="modalTitle"></h3>
+      <div class="modal-tags" id="modalTags"></div>
+      <p class="modal-desc" id="modalDesc"></p>
+      <a class="modal-link" id="modalLink" target="_blank"></a>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <div class="section-label" data-i18n="skills.label">Expertise</div>
+  <h2 class="section-title" data-i18n="skills.title">Skills &<br><em>Capabilities</em></h2>
+
+  <div class="skills-grid">
+    <div class="skill-category reveal">
+      <div class="skill-cat-label" data-i18n="skills.cat1">Strategy & Planning</div>
+      <ul class="skill-list">
+        <li data-i18n="s1">Marketing Strategy (B2C & B2B/Trade)</li>
+        <li data-i18n="s2">Brand Identity Development</li>
+        <li data-i18n="s3">Content Strategy & Adaptation</li>
+        <li data-i18n="s4">Campaign Planning & Execution</li>
+        <li data-i18n="s5">Customer Journey Mapping</li>
+        <li data-i18n="s6">Pricing & Promotions Strategy</li>
+      </ul>
+    </div>
+    <div class="skill-category reveal">
+      <div class="skill-cat-label" data-i18n="skills.cat2">Digital & Performance</div>
+      <ul class="skill-list">
+        <li>Meta Ads (Facebook & Instagram)</li>
+        <li>Google Ads</li>
+        <li data-i18n="s7">Email Marketing & Lifecycle</li>
+        <li data-i18n="s8">Performance Marketing & ROAS</li>
+        <li data-i18n="s9">Audience Segmentation & Testing</li>
+        <li data-i18n="s10">Data Analysis & KPI Tracking</li>
+      </ul>
+    </div>
+    <div class="skill-category reveal">
+      <div class="skill-cat-label" data-i18n="skills.cat3">Content & Creative</div>
+      <ul class="skill-list">
+        <li data-i18n="s11">Creative Direction</li>
+        <li data-i18n="s12">Social Media Management</li>
+        <li data-i18n="s13">Reels & Short-form Video</li>
+        <li data-i18n="s14">Influencer Marketing Management</li>
+        <li data-i18n="s15">Visual Identity</li>
+        <li>Copywriting</li>
+      </ul>
+    </div>
+    <div class="skill-category reveal">
+      <div class="skill-cat-label" data-i18n="skills.cat4">E-commerce & Web</div>
+      <ul class="skill-list">
+        <li data-i18n="s16">E-commerce Strategy (DTC)</li>
+        <li data-i18n="s17">Conversion Rate Optimization</li>
+        <li>UX Thinking</li>
+        <li>WordPress</li>
+        <li data-i18n="s18">Website Management & Coordination</li>
+        <li>VinoShipper</li>
+      </ul>
+    </div>
+    <div class="skill-category reveal">
+      <div class="skill-cat-label" data-i18n="skills.cat5">Management & Ops</div>
+      <ul class="skill-list">
+        <li data-i18n="s19">Project Management</li>
+        <li data-i18n="s20">Cross-functional Coordination</li>
+        <li data-i18n="s21">Stakeholder & Partner Management</li>
+        <li data-i18n="s22">Trade Marketing Coordination</li>
+        <li data-i18n="s23">Inventory & Catalog Management</li>
+        <li data-i18n="s24">Multi-market Coordination (US & ARG)</li>
+      </ul>
+    </div>
+    <div class="skill-category reveal">
+      <div class="skill-cat-label" data-i18n="skills.cat6">Platforms & Tools</div>
+      <ul class="skill-list">
+        <li>Meta Business Suite</li>
+        <li>Google Analytics</li>
+        <li>Mailchimp / Email Platforms</li>
+        <li>Instagram / TikTok / YouTube</li>
+        <li>WordPress / CMS</li>
+        <li data-i18n="s25">Reporting & Dashboards</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-left reveal">
+    <h2 class="contact-tagline" data-i18n="contact.tagline">Let's build<br>something<br><em>remarkable.</em></h2>
+    <div class="contact-links">
+      <a href="/cdn-cgi/l/email-protection#c1b7a8a2b5aeb3a8a0aca0b3a2a9a8ae81a9aeb5aca0a8adefa2aeac" class="contact-link">
+        <span class="contact-link-type" data-i18n="contact.email">Email</span>
+        <span class="contact-link-value"><span class="__cf_email__" data-cfemail="8cfae5eff8e3fee5ede1edfeefe4e5e3cce4e3f8e1ede5e0a2efe3e1">[email&#160;protected]</span></span>
+        <span class="contact-link-arrow">↗</span>
+      </a>
+      <a href="https://www.linkedin.com/in/victoria-marchio/?locale=en" target="_blank" class="contact-link">
+        <span class="contact-link-type">LinkedIn</span>
+        <span class="contact-link-value">Victoria Marchio</span>
+        <span class="contact-link-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+  <div class="contact-right reveal">
+    <h3 class="contact-right-title" data-i18n="contact.cta.title">Available for<br><em>new opportunities</em></h3>
+    <p data-i18n="contact.cta.text">I'm currently open to full-time roles, freelance projects, and consulting engagements in marketing, digital strategy, and brand development — across both local and international markets.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-copy" data-i18n="footer.copy">© 2026 Victoria Marchio. All rights reserved.</div>
+  <div class="footer-name">Victoria Marchio</div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── TRANSLATIONS ──
+const translations = {
+  en: {
+    "nav.about": "About",
+    "nav.projects": "Projects",
+    "nav.skills": "Skills",
+    "nav.contact": "Contact",
+    "hero.label": "Marketing & Communications Specialist",
+    "hero.bio": "Advertising graduate from Universidad de Palermo, Argentina. I build brands from the ground up — combining strategy, creative direction, performance marketing, and data analysis to drive measurable results.",
+    "hero.cta.me": "About Me ↓",
+    "hero.cta.projects": "View Projects ↓",
+    "hero.stat1": "Avg. ROAS",
+    "hero.stat2": "Views Generated",
+    "hero.stat3": "Brand Launches",
+    "hero.scroll": "Scroll to explore",
+    "about.label": "About",
+    "about.title": "Strategy meets<br><em>execution</em>",
+    "about.p1": "I'm a Marketing & Communications specialist with a degree in Advertising from Universidad de Palermo, Argentina. My experience spans brand launches, digital campaigns, e-commerce management, content strategy, and performance marketing — across consumer goods, wine & spirits, and real estate.",
+    "about.p2": "What sets me apart is my ability to operate across the full marketing funnel: from defining brand identity and communication pillars, to running Meta Ads campaigns that deliver measurable ROAS, to managing every digital touchpoint that connects a brand to its audience.",
+    "about.p3": "I'm equally comfortable leading a zero-to-one brand launch as I am optimizing a complex e-commerce operation or orchestrating a multi-market influencer campaign. I believe great marketing lives at the intersection of creative vision and hard data.",
+    "about.edu.label": "Education",
+    "about.edu.value": "Bachelor's Degree in Advertising<br>Universidad de Palermo, ARG",
+    "about.markets.label": "Markets",
+    "about.markets.value": "United States · Argentina · Mexico<br>Multi-market experience",
+    "about.industries.label": "Industries",
+    "about.industries.value": "Wine & Spirits · Real Estate<br>Consumer Goods · FMCG",
+    "about.langs.label": "Languages",
+    "about.langs.value": "Spanish (Native)<br>English (Professional)",
+    "projects.label": "Selected Work",
+    "projects.title": "Projects &<br><em>Campaigns</em>",
+    "p1.title": "John C Spirits — Brand Launch",
+    "p1.desc": "My most ambitious project — built John C Spirits entirely from scratch. The brand had history but no identity. I created the visual identity, briefed and directed the photography production, co-designed the website architecture and layout, and defined the brand's communication pillars. The dual challenge: Vodka and Gin attract very different audiences, requiring a segmented content and influencer strategy for each. I managed the full influencer campaign end-to-end — scouting, scripting, coordinating, and tracking — achieving 300K+ views on a single post. Simultaneously ran brand lift, awareness, and follower-growth campaigns.",
+    "p2.title": "Marketing & Digital Management",
+    "p2.desc": "End-to-end management of Piattelli Vineyards' marketing and communications across the US and Argentina markets. Led campaign planning, execution, and optimization (Meta Ads + email), coordinated the institutional website including trade site, product pages, and brand materials, and managed multiple campaigns simultaneously — FIFA World Cup activation ("This Is What Passion Tastes Like"), Women's History Month ("Led by HERvision"), Malbec Elevated, and seasonal Q1/Q2 campaigns. Worked cross-functionally with distributors, agencies, and internal teams across both markets.",
+    "p3.title": "DTC E-commerce Management",
+    "p3.desc": "Led the development and evolution of Piattelli Direct's DTC e-commerce channel for the US market, building a profitable and scalable direct sales channel. Managed the complete user experience from acquisition to conversion and repurchase — optimizing site architecture, navigation, product pages, and checkout flow. Coordinated with VinoShipper for alcohol compliance and logistics. Managed product catalog, inventory, pricing, promotions, and bundles. Integrated paid media and email marketing into the funnel for maximum efficiency.",
+    "p4.title": "Performance Ads — 595% ROAS",
+    "p4.desc": "Managed and optimized paid media campaigns for Blackstone Products (National Griddle Week), achieving an average ROAS of 595% and staying above goal throughout the entire campaign. Designed campaign structure and audience segmentation, testing multiple groups to identify the highest-performing segments. The "South – Women" audience delivered a ROAS of 554% with 61 purchases. Best-performing ad reached 706–1116% ROAS. Continuous data analysis drove budget reallocation toward the highest-return audiences.",
+    "p5.title": "Organic Social Strategy — RTD Brand",
+    "p5.desc": "Led content strategy and production coordination for a ready-to-drink beverage brand targeting a young audience. With no paid media budget, built a strong organic presence by defining the brand voice, visual identity, and content pillars. Coordinated photo and video production, planned content calendars around consumption moments and seasonality, and adapted content to platform-specific trends and formats.",
+    "p6.title": "Social Media & Reels — 40K+ Organic Reach",
+    "p6.desc": "Managed social media strategy for two real estate accounts (@escallon.realtor and @shelter.wynwood), building a cohesive, lifestyle-oriented digital presence. Produced and optimized feed, stories, and Reels content — achieving 41,171+ organic reach exclusively through video content, with zero paid investment. Managed content calendars, trend adaptation, and performance analysis to consistently improve engagement and brand visibility in a highly competitive market.",
+    "skills.label": "Expertise",
+    "skills.title": "Skills &<br><em>Capabilities</em>",
+    "skills.cat1": "Strategy & Planning",
+    "skills.cat2": "Digital & Performance",
+    "skills.cat3": "Content & Creative",
+    "skills.cat4": "E-commerce & Web",
+    "skills.cat5": "Management & Ops",
+    "skills.cat6": "Platforms & Tools",
+    "s1": "Marketing Strategy (B2C & B2B/Trade)",
+    "s2": "Brand Identity Development",
+    "s3": "Content Strategy & Adaptation",
+    "s4": "Campaign Planning & Execution",
+    "s5": "Customer Journey Mapping",
+    "s6": "Pricing & Promotions Strategy",
+    "s7": "Email Marketing & Lifecycle",
+    "s8": "Performance Marketing & ROAS",
+    "s9": "Audience Segmentation & Testing",
+    "s10": "Data Analysis & KPI Tracking",
+    "s11": "Creative Direction",
+    "s12": "Social Media Management",
+    "s13": "Reels & Short-form Video",
+    "s14": "Influencer Marketing Management",
+    "s15": "Visual Identity",
+    "s16": "E-commerce Strategy (DTC)",
+    "s17": "Conversion Rate Optimization",
+    "s18": "Website Management & Coordination",
+    "s19": "Project Management",
+    "s20": "Cross-functional Coordination",
+    "s21": "Stakeholder & Partner Management",
+    "s22": "Trade Marketing Coordination",
+    "s23": "Inventory & Catalog Management",
+    "s24": "Multi-market Coordination (US & ARG)",
+    "s25": "Reporting & Dashboards",
+    "contact.tagline": "Let's build<br>something<br><em>remarkable.</em>",
+    "contact.email": "Email",
+    "contact.cta.title": "Available for<br><em>new opportunities</em>",
+    "contact.cta.text": "I'm currently open to full-time roles, freelance projects, and consulting engagements in marketing, digital strategy, and brand development — across both local and international markets.",
+    "footer.copy": "© 2026 Victoria Marchio. All rights reserved.",
+    "view.site": "View Website →",
+    "view.ig": "View Instagram →",
+    "tag.brand": "Brand Identity",
+    "tag.digital": "Digital Strategy",
+    "tag.trade": "Trade Marketing",
+    "tag.lifecycle": "Lifecycle Marketing",
+    "tag.segmentation": "Audience Segmentation",
+    "tag.content": "Content Strategy",
+    "tag.organic": "Organic Growth",
+    "tag.visual": "Visual Identity",
+  },
+  es: {
+    "nav.about": "Sobre mí",
+    "nav.projects": "Proyectos",
+    "nav.skills": "Skills",
+    "nav.contact": "Contacto",
+    "hero.label": "Especialista en Marketing & Comunicación",
+    "hero.bio": "Licenciada en Publicidad por la Universidad de Palermo, Argentina. Construyo marcas desde cero — combinando estrategia, dirección creativa, performance marketing y análisis de datos para generar resultados medibles.",
+    "hero.cta.me": "Sobre mí ↓",
+    "hero.cta.projects": "Ver Proyectos ↓",
+    "hero.stat1": "ROAS promedio",
+    "hero.stat2": "Vistas generadas",
+    "hero.stat3": "Marcas lanzadas",
+    "hero.scroll": "Seguir explorando",
+    "about.label": "Sobre mí",
+    "about.title": "Estrategia con<br><em>ejecución</em>",
+    "about.p1": "Soy especialista en Marketing & Comunicación con Licenciatura en Publicidad por la Universidad de Palermo, Argentina. Mi experiencia abarca lanzamientos de marca, campañas digitales, gestión de e-commerce, estrategia de contenido y performance marketing — en consumo masivo, vinos & spirits y real estate.",
+    "about.p2": "Lo que me distingue es mi capacidad de operar en todo el funnel de marketing: desde definir la identidad de marca y los ejes comunicacionales, hasta gestionar campañas de Meta Ads con ROAS medible, pasando por cada punto de contacto digital que conecta una marca con su audiencia.",
+    "about.p3": "Me siento igual de cómoda liderando un lanzamiento de marca desde cero que optimizando una operación de e-commerce compleja u orquestando una campaña de influencers multi-mercado. Creo que el gran marketing vive en la intersección de la visión creativa y los datos concretos.",
+    "about.edu.label": "Formación",
+    "about.edu.value": "Licenciatura en Publicidad<br>Universidad de Palermo, ARG",
+    "about.markets.label": "Mercados",
+    "about.markets.value": "Estados Unidos · Argentina · México<br>Experiencia multi-mercado",
+    "about.industries.label": "Industrias",
+    "about.industries.value": "Vinos & Spirits · Real Estate<br>Consumo Masivo · FMCG",
+    "about.langs.label": "Idiomas",
+    "about.langs.value": "Español (Nativo)<br>Inglés (Profesional)",
+    "projects.label": "Trabajo seleccionado",
+    "projects.title": "Proyectos &<br><em>Campañas</em>",
+    "p1.title": "John C Spirits — Lanzamiento de marca",
+    "p1.desc": "Mi proyecto más ambicioso — construí John C Spirits completamente desde cero. La marca tenía historia pero no identidad. Creé la identidad visual, briefié y dirigí la producción fotográfica, co-diseñé la arquitectura y el layout de la web, y definí los ejes comunicacionales de la marca. El doble desafío: Vodka y Gin atraen públicos muy distintos, lo que requirió estrategias de contenido e influencers segmentadas para cada uno. Gestioné la campaña de influencers de punta a punta — contacto, guión, coordinación, seguimiento y pagos — alcanzando más de 300K reproducciones en un solo post. Al mismo tiempo corrí campañas de brand lift, awareness y crecimiento de seguidores.",
+    "p2.title": "Marketing & Gestión Digital",
+    "p2.desc": "Gestión integral del marketing y comunicaciones de Piattelli Vineyards en los mercados de EEUU y Argentina. Lideré la planificación, ejecución y optimización de campañas (Meta Ads + email), coordiné el sitio web institucional incluyendo el trade site, páginas de producto y materiales de marca, y gestioné múltiples campañas en simultáneo — activación FIFA World Cup ("This Is What Passion Tastes Like"), Mes de la Mujer ("Led by HERvision"), Malbec Elevated y campañas estacionales Q1/Q2. Trabajo transversal con distribuidores, agencias y equipos internos en ambos mercados.",
+    "p3.title": "Gestión de E-commerce DTC",
+    "p3.desc": "Lideré el desarrollo y evolución del canal de e-commerce DTC de Piattelli Direct para el mercado de EEUU, construyendo un canal de venta rentable y escalable. Gestioné la experiencia end-to-end del usuario — desde la adquisición hasta la conversión y recompra — optimizando arquitectura del sitio, navegación, páginas de producto y checkout. Coordiné con VinoShipper para compliance de bebidas alcohólicas y logística. Gestioné catálogo, inventario, precios, promociones y bundles. Integré paid media y email marketing en el funnel para maximizar resultados.",
+    "p4.title": "Performance Ads — 595% ROAS",
+    "p4.desc": "Gestioné y optimicé campañas de paid media para Blackstone Products (National Griddle Week), logrando un ROAS promedio del 595% y manteniéndome por encima de los objetivos durante toda la campaña. Diseñé la estructura de campañas y segmentación de audiencias, testeando distintos grupos para identificar los más eficientes. La audiencia "South – Women" logró un ROAS del 554% con 61 compras. El mejor anuncio individual alcanzó entre 706% y 1116% de ROAS. El análisis continuo de datos guió la reasignación de presupuesto hacia las audiencias de mayor rendimiento.",
+    "p5.title": "Estrategia Orgánica de Redes — Marca RTD",
+    "p5.desc": "Lideré la estrategia de contenido y coordinación de producción para una marca de bebidas RTD orientada a un público joven. Sin presupuesto de pauta, construí una presencia orgánica sólida definiendo la voz de marca, identidad visual y pilares de contenido. Coordiné producción de foto y video, planifiqué calendarios de contenido según momentos de consumo y estacionalidad, y adapté el contenido a tendencias y formatos propios de cada plataforma.",
+    "p6.title": "Redes Sociales & Reels — +40K Alcance Orgánico",
+    "p6.desc": "Gestioné la estrategia de redes sociales para dos cuentas de real estate (@escallon.realtor y @shelter.wynwood), construyendo una presencia digital cohesiva y lifestyle. Produje y optimicé contenido para feed, stories y Reels — logrando más de 41.171 de alcance orgánico exclusivamente a través de contenido en video, sin inversión en pauta. Gestioné calendarios de contenido, adaptación a tendencias y análisis de performance para mejorar engagement y visibilidad de marca.",
+    "skills.label": "Expertise",
+    "skills.title": "Skills &<br><em>Capacidades</em>",
+    "skills.cat1": "Estrategia & Planificación",
+    "skills.cat2": "Digital & Performance",
+    "skills.cat3": "Contenido & Creativo",
+    "skills.cat4": "E-commerce & Web",
+    "skills.cat5": "Gestión & Operaciones",
+    "skills.cat6": "Plataformas & Herramientas",
+    "s1": "Estrategia de Marketing (B2C & B2B/Trade)",
+    "s2": "Desarrollo de Identidad de Marca",
+    "s3": "Estrategia de Contenido",
+    "s4": "Planificación y Ejecución de Campañas",
+    "s5": "Customer Journey Mapping",
+    "s6": "Estrategia de Precios y Promociones",
+    "s7": "Email Marketing & Lifecycle",
+    "s8": "Performance Marketing & ROAS",
+    "s9": "Segmentación y Testing de Audiencias",
+    "s10": "Análisis de Datos & KPIs",
+    "s11": "Dirección Creativa",
+    "s12": "Gestión de Redes Sociales",
+    "s13": "Reels & Video Corto",
+    "s14": "Gestión de Influencers",
+    "s15": "Identidad Visual",
+    "s16": "Estrategia E-commerce (DTC)",
+    "s17": "Optimización de Conversión (CRO)",
+    "s18": "Gestión y Coordinación Web",
+    "s19": "Gestión de Proyectos",
+    "s20": "Coordinación Transversal",
+    "s21": "Gestión de Stakeholders y Partners",
+    "s22": "Coordinación de Trade Marketing",
+    "s23": "Gestión de Catálogo e Inventario",
+    "s24": "Coordinación Multi-mercado (EEUU & ARG)",
+    "s25": "Reportes & Dashboards",
+    "contact.tagline": "Construyamos<br>algo<br><em>memorable.</em>",
+    "contact.email": "Email",
+    "contact.cta.title": "Abierta a<br><em>nuevas oportunidades</em>",
+    "contact.cta.text": "Estoy disponible para roles full-time, proyectos freelance y consultorías en marketing, estrategia digital y desarrollo de marca — tanto en mercados locales como internacionales.",
+    "footer.copy": "© 2026 Victoria Marchio. Todos los derechos reservados.",
+    "view.site": "Ver sitio web →",
+    "view.ig": "Ver Instagram →",
+    "tag.brand": "Identidad de Marca",
+    "tag.digital": "Estrategia Digital",
+    "tag.trade": "Trade Marketing",
+    "tag.lifecycle": "Lifecycle Marketing",
+    "tag.segmentation": "Segmentación de Audiencias",
+    "tag.content": "Estrategia de Contenido",
+    "tag.organic": "Crecimiento Orgánico",
+    "tag.visual": "Identidad Visual",
+  }
+};
+
+let currentLang = 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === lang.toUpperCase()));
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang][key] !== undefined) {
+      el.innerHTML = translations[lang][key];
+    }
+  });
+}
+
+// ── MODAL DATA ──
+const modalData = {
+  m1: {
+    num: '01', brand: 'Piattelli Distillery',
+    title: { en: 'John C Spirits — Brand Launch', es: 'John C Spirits — Lanzamiento de Marca' },
+    tags: ['Brand Identity', 'Influencer', 'Meta Ads', 'Content Strategy'],
+    desc: { en: 'Built John C Spirits from scratch — creating visual identity, directing photography, co-designing the website, and defining communication pillars. Managed the full influencer campaign end-to-end achieving 300K+ views on a single post. Simultaneously ran brand lift, awareness, and follower-growth campaigns for both Vodka and Gin lines.', es: 'Construí John C Spirits desde cero — identidad visual, producción fotográfica, diseño web y ejes comunicacionales. Gestioné la campaña de influencers de punta a punta alcanzando +300K reproducciones en un solo post. Campañas de brand lift, awareness y followers para ambas líneas.' },
+    link: 'https://www.johncspirits.com/',
+    linkLabel: { en: 'Visit Website →', es: 'Ver Sitio →' },
+    images: ['johncspirits.com', 'instagram.com/johncspirits', '300K+ views · Campaign']
+  },
+  m2: {
+    num: '02', brand: 'Piattelli Vineyards',
+    title: { en: 'Marketing & Digital Management', es: 'Marketing & Gestión Digital' },
+    tags: ['Meta Ads', 'Email Marketing', 'Trade Marketing', 'Multi-market'],
+    desc: { en: 'End-to-end management across US & Argentina. Led FIFA WC activation ("This Is What Passion Tastes Like"), Women\'s History Month ("Led by HERvision"), Malbec Elevated, and seasonal campaigns. Managed institutional website, trade site, and coordinated with distributors and agencies in both markets.', es: 'Gestión integral en EEUU y Argentina. Activación FIFA ("This Is What Passion Tastes Like"), Mes de la Mujer ("Led by HERvision"), Malbec Elevated y campañas estacionales. Sitio web, trade site y coordinación con distribuidores y agencias.' },
+    link: 'https://www.piattellivineyards.com/home',
+    linkLabel: { en: 'Visit Website →', es: 'Ver Sitio →' },
+    images: ['FIFA WC — "This Is What Passion Tastes Like"', '"Led by HERvision" — Women\'s Month', 'Malbec Elevated Campaign']
+  },
+  m3: {
+    num: '03', brand: 'Piattelli Direct — USA',
+    title: { en: 'DTC E-commerce Management', es: 'Gestión de E-commerce DTC' },
+    tags: ['E-commerce', 'CRO', 'UX', 'Email Marketing', 'VinoShipper'],
+    desc: { en: 'Led the DTC e-commerce channel for the US market. Optimized site architecture, navigation, product pages and checkout. Managed catalog, inventory, pricing, promotions and bundles. Coordinated with VinoShipper for alcohol compliance. Integrated paid media and email into the full funnel.', es: 'Lideré el canal DTC de EEUU. Optimicé arquitectura, navegación, páginas de producto y checkout. Gestioné catálogo, inventario, precios, promociones y bundles. Coordiné con VinoShipper. Integré paid media y email al funnel.' },
+    link: 'https://piattellidirect.com/',
+    linkLabel: { en: 'Visit Website →', es: 'Ver Sitio →' },
+    images: ['piattellidirect.com', 'Email Campaigns · Lifecycle', 'Product Pages · Catalog']
+  },
+  m4: {
+    num: '04', brand: 'Blackstone Products — USA',
+    title: { en: 'Performance Ads — 595% ROAS', es: 'Performance Ads — 595% ROAS' },
+    tags: ['Meta Ads', 'Google Ads', 'ROAS Optimization', 'Audience Segmentation'],
+    desc: { en: 'National Griddle Week campaign: 595% avg. ROAS, above goal throughout. "South – Women" segment: 554% ROAS, 61 purchases. Best single ad: 1116% ROAS. Continuous A/B testing and budget reallocation toward top-performing audiences.', es: 'National Griddle Week: 595% ROAS promedio, por encima del objetivo en toda la campaña. Segmento "South – Women": 554% ROAS, 61 compras. Mejor anuncio individual: 1116% ROAS. A/B testing y reasignación de presupuesto continua.' },
+    link: 'https://blackstoneproducts.com/',
+    linkLabel: { en: 'Visit Website →', es: 'Ver Sitio →' },
+    images: ['595% Avg. ROAS · Campaign', '1116% Best Ad ROAS', '1,043 Purchases · $45.41 CPO']
+  },
+  m5: {
+    num: '05', brand: 'Breakout RTD',
+    title: { en: 'Organic Social Strategy — RTD Brand', es: 'Estrategia Orgánica — Marca RTD' },
+    tags: ['Content Strategy', 'Creative Direction', 'Reels', 'Gen Z'],
+    desc: { en: 'Led content strategy and production for Breakout, a ready-to-drink beverage targeting young audiences. Zero paid budget — built full organic presence from brand voice, visual identity, and content pillars. Coordinated photo and video production and content calendar.', es: 'Estrategia de contenido y producción para Breakout, bebida RTD orientada a jóvenes. Sin pauta — construí toda la presencia orgánica desde la voz de marca, identidad visual y pilares de contenido.' },
+    link: 'https://www.instagram.com/piattellibreakout/',
+    linkLabel: { en: 'View Instagram →', es: 'Ver Instagram →' },
+    images: ['@piattellibreakout', 'Organic Content · Reels', 'Gen Z · Brand Voice']
+  },
+  m6: {
+    num: '06', brand: 'Real Estate Accounts',
+    title: { en: 'Social Media & Reels — 40K+ Organic Reach', es: 'Redes Sociales & Reels — +40K Orgánico' },
+    tags: ['Social Media', 'Reels', 'Organic Growth', 'Visual Identity'],
+    desc: { en: 'Managed @escallon.realtor and @shelter.wynwood — lifestyle-oriented digital presence. Achieved 41,171+ organic reach through Reels alone, zero paid investment. Top Reel: 10.5K views. Content calendars, trend adaptation, and performance analysis in a competitive real estate market.', es: 'Gestioné @escallon.realtor y @shelter.wynwood — presencia digital lifestyle. +41.171 de alcance orgánico solo con Reels, sin inversión en pauta. Mejor Reel: 10.5K views.' },
+    link: 'https://www.instagram.com/shelter.wynwood/',
+    linkLabel: { en: 'View Instagram →', es: 'Ver Instagram →' },
+    images: ['@escallon.realtor · Feed & Stories', '@shelter.wynwood · 10.5K Reel', '41K+ Organic Reach · Zero Spend']
+  }
+};
+
+const imgBgs = {
+  0: ['#0E0E0E','#C8A96E'], 1: ['#1a1a1a','#9B8EC4'], 2: ['#0d1a14','#4A9B8E'],
+};
+
+function openModal(id) {
+  const data = modalData[id];
+  if (!data) return;
+  const lang = currentLang;
+  document.getElementById('modalNum').textContent = data.num;
+  document.getElementById('modalBrand').textContent = data.brand;
+  document.getElementById('modalTitle').textContent = data.title[lang];
+  document.getElementById('modalDesc').textContent = data.desc[lang];
+  const link = document.getElementById('modalLink');
+  if (data.link) { link.href = data.link; link.textContent = data.linkLabel[lang]; }
+  else { link.textContent = ''; }
+  document.getElementById('modalTags').innerHTML = data.tags.map(t => `<span class="modal-tag">${t}</span>`).join('');
+  const colors = [['#0E0E0E','#C8A96E'],['#1a1a2e','#9B8EC4'],['#0d1a14','#4A9B8E']];
+  document.getElementById('modalImages').innerHTML = data.images.map((img,i) =>
+    `<div class="modal-img-item" style="background:${colors[i][0]};color:${colors[i][1]};">${img}</div>`
+  ).join('');
+  document.getElementById('modal').classList.add('open');
+  document.getElementById('modalBackdrop').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.getElementById('modalBackdrop').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ── SCROLL REVEAL ──
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
